@@ -7,6 +7,7 @@ import {
   boolean,
   integer,
   index,
+  text,
   date,
 } from "drizzle-orm/pg-core";
 
@@ -18,6 +19,14 @@ export const admin = pgTable("admin", {
   email: varchar("email", { length: 255 }).notNull(),
   password: varchar("password", { length: 255 }).notNull(),
   name: varchar("name", { length: 255 }).notNull(),
+});
+export const refreshTokens = pgTable("refresh_tokens", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .references(() => admin.id)
+    .notNull(),
+  token: text("token").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
 });
 export const service = pgTable("service", {
   id: uuid("id").primaryKey().defaultRandom(),
