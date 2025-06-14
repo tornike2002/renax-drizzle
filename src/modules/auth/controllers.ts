@@ -12,7 +12,7 @@ export const registerAdmin = async (req: Request, res: Response) => {
     const [existingAdmin] = await db
       .select()
       .from(admin)
-      .where(eq(email, admin.email));
+      .where(eq(admin.email, email));
 
     if (existingAdmin) {
       res.status(400).json({
@@ -45,7 +45,7 @@ export const loginAdmin = async (req: Request, res: Response) => {
     const [adminAccount] = await db
       .select()
       .from(admin)
-      .where(eq(email, admin.email));
+      .where(eq(admin.email, email));
 
     if (!adminAccount) {
       res.status(401).json({
