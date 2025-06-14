@@ -6,7 +6,7 @@ export const generateToken = (id: string) => {
   });
 };
 
-export const genereateRefreshToken = (id: string) => {
+export const generateRefreshToken = (id: string) => {
   return jwt.sign({ id }, process.env.REFRESH_TOKEN_SECRET!, {
     expiresIn: "7d",
   });
