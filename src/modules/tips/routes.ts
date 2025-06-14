@@ -98,7 +98,7 @@ export default router;
 
 /**
  * @swagger
- * /tips:
+ * /api/tips:
  *   get:
  *     summary: Get all tips
  *     tags: [Tips]
@@ -141,7 +141,7 @@ export default router;
 
 /**
  * @swagger
- * /tips/{id}:
+ * /api/tips/{id}:
  *   put:
  *     summary: Update a tip
  *     tags: [Tips]
@@ -197,4 +197,3 @@ export default router;
  *       500:
  *         description: Internal server error
  */
-
