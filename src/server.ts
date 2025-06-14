@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./modules/auth/routes";
 import homeVideoRoutes from "./modules/homeVideo/routes";
+import tipsRoutes from "./modules/tips/routes";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use((err: any, req: Request, res: Response, next: express.NextFunction) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/home-video", homeVideoRoutes);
+app.use("/api/tips", tipsRoutes);
 
 export default app;
